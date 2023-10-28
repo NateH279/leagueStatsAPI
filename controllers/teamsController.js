@@ -1,5 +1,6 @@
 const Team = require('../models/Team')
 const asyncHandler = require('express-async-handler')
+const { logEvents } = require('../middleware/logger')
 
 // @desc Get all teams
 // @route GET /teams
@@ -17,7 +18,7 @@ const getAllTeams = asyncHandler(async (req, res) => {
 // @access Private
 const createNewTeam = asyncHandler(async (req, res) => {
     const { teamName, gamesPlayed, wins, draws, losses, goalsFor, goalsAgst, goalDiff, points } = req.body
-
+    logEvents(`${JSON.stringify(req.body)}`, 'debug.log')
     //Confirms data
     if (!teamName) {
         return res.status(400).json({ message: 'Team name required' })
