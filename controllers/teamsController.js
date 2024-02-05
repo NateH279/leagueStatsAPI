@@ -75,7 +75,7 @@ const updateTeam = asyncHandler(async (req, res) => {
 
     if (duplicate && duplicate?._id.toString() !== id) {
         return res.status(409).json({ message: 'Duplicate team' })
-    }
+    } 
 
     team.teamName = teamName
     team.gamesPlayed = gamesPlayed
