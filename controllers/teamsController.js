@@ -17,7 +17,7 @@ const getAllTeams = asyncHandler(async (req, res) => {
 // @route POST /teams
 // @access Private
 const createNewTeam = asyncHandler(async (req, res) => {
-    const { teamName, gamesPlayed, wins, draws, losses, goalsFor, goalsAgst, goalDiff, points } = req.body
+    const { teamName, city, stadium, yearFounded, logoURL } = req.body
     logEvents(`${JSON.stringify(req.body)}`, 'debug.log')
     //Confirms data
     if (!teamName) {
@@ -33,14 +33,10 @@ const createNewTeam = asyncHandler(async (req, res) => {
 
     const teamObject = {
         teamName, 
-        gamesPlayed, 
-        wins, 
-        draws, 
-        losses, 
-        goalsFor, 
-        goalsAgst, 
-        goalDiff, 
-        points
+        city,
+        stadium,
+        yearFounded,
+        logoURL
     }
 
     // Create and store new team
@@ -57,7 +53,7 @@ const createNewTeam = asyncHandler(async (req, res) => {
 // @route PATCH /teams
 // @access Private
 const updateTeam = asyncHandler(async (req, res) => {
-    const { id, teamName, gamesPlayed, wins, draws, losses, goalsFor, goalsAgst, goalDiff, points } = req.body
+    const { id, teamName, city, stadium, yearFounded, logoURL } = req.body
 
     //Confirms data
     if (!id || !teamName) {
@@ -78,14 +74,10 @@ const updateTeam = asyncHandler(async (req, res) => {
     } 
 
     team.teamName = teamName
-    team.gamesPlayed = gamesPlayed
-    team.wins = wins
-    team.draws = draws
-    team.losses = losses
-    team.goalsFor = goalsFor
-    team.goalsAgst = goalsAgst
-    team.goalDiff = goalDiff
-    team.points = points
+    team.city = city
+    team.stadium = stadium
+    team.yearFounded = yearFounded
+    team.logoURL = logoURL
 
     const updatedTeam = await team.save()
 

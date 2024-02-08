@@ -5,39 +5,22 @@ const teamSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    gamesPlayed: {
-        type: Number,
-        default: 0
+    city: {
+        type: String,
+        require: false
     },
-    wins: {
-        type: Number,
-        default: 0
+    stadium: {
+        type: String,
+        require: false
     },
-    draws: {
+    yearFounded: {
         type: Number,
-        default: 0
+        require: false
     },
-    losses: {
-        type: Number,
-        default: 0
-    },
-    goalsFor: {
-        type: Number,
-        default: 0
-    },
-    goalsAgst: {
-        type: Number,
-        default: 0
-    },
-    goalDiff: {
-        type: Number,
-        default: 0
-    },
-    points: {
-        type: Number,
-        default: 0
-    },
-    
+    logoURL: {
+        type: String,
+        require: false
+    }
 })
 
 module.exports = mongoose.model('Team', teamSchema)
