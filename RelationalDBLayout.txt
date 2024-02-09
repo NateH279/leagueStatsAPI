@@ -1,0 +1,44 @@
+Teams Table:
+    TeamId - Primary
+    teamName
+    City
+    Stadium
+    Manager - NOT NOW
+    FoundedYear
+    LogoURL
+
+Standing Table:
+    StandingID - Primary
+    TeamId - Foregin
+    Position
+    MatchesPlayed
+    wins
+    draws
+    losses
+    goalsFor
+    goalsAgst
+    goalDiff
+    points
+
+Match Table:
+    MatchID - Primary
+    MatchDate
+    MatchWeekNumber
+    HomeTeamID - Foregin
+    AwayTeamID - Foregin
+    HomeTeamGoals
+    AwayTeamGoals
+
+
+Player Table:
+    PlayerID - Primary
+    FirstName
+    LastName
+    Age
+    Nationality
+    Position - Array could have more than 1
+    MatchesPlayed
+    MinutesPlayed
+    Goals 
+    Assists
+    TeamID - Foregin
