@@ -13,12 +13,29 @@ const getAllTeams = asyncHandler(async (req, res) => {
     res.json(teams)
 })
 
+// @desc Get a specific team by ID
+// @route GET /teams/:id
+// @access Private
+const getTeamById = asyncHandler(async (req, res) => {
+    const id = req.params.id
+
+    // Find the team by ID
+    const team = await Team.findById(id).lean().exec();
+
+    // Check if the team exists
+    if (!team) {
+        return res.status(404).json({ message: 'Team not found' });
+    }
+
+    res.json(team);
+});
+
 // @desc Create new team
 // @route POST /teams
 // @access Private
 const createNewTeam = asyncHandler(async (req, res) => {
     const { teamName, city, stadium, yearFounded, logoURL } = req.body
-    logEvents(`${JSON.stringify(req.body)}`, 'debug.log')
+
     //Confirms data
     if (!teamName) {
         return res.status(400).json({ message: 'Team name required' })
@@ -109,6 +126,7 @@ const deleteTeam = asyncHandler(async (req, res) => {
 
 module.exports = {
     getAllTeams,
+    getTeamById,
     createNewTeam,
     updateTeam,
     deleteTeam

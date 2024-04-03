@@ -8,4 +8,6 @@ router.route('/')
     .patch(teamsController.updateTeam)
     .delete(teamsController.deleteTeam)
 
+router.get('/:id', teamsController.getTeamById)
+
 module.exports = router
