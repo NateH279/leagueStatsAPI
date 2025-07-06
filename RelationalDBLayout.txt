@@ -31,14 +31,40 @@ Match Table:
 
 
 Player Table:
-    PlayerID - Primary
-    FirstName
-    LastName
-    Age
-    Nationality
-    Position - Array could have more than 1
-    MatchesPlayed
-    MinutesPlayed
-    Goals 
-    Assists
-    TeamID - Foregin
+    playerID - Primary
+    firstName
+    lastName
+    nationality
+    position - Array could have more than 1
+    teamID - Foregin
+    age
+    born
+    matchesPlayed
+    starts
+    minutesPlayed
+    ninetiesPlayed
+    goals 
+    assists
+    goalContributions
+    nonPenaltyGoals
+    penaltyGoals
+    attemptedPenaltyKicks
+    yellowCards
+    redCards
+    expectedGoals
+    nonPenaltyExpectedGoals
+    expectedAssists
+    nonPenaltyGoalsContributions
+    progressiveCarries
+    progressivePasses
+    progressivePassesReceived
+    goalsPer90
+    assistsPer90
+    goalContributionsPer90
+    nonPenaltyGoalsPer90
+    nonPenaltyGoalContributionsPer90
+    expectedGoalsPer90
+    expectedAssistsPer90
+    expectedGoalContributionsPer90
+    nonPenaltyExpectedGoalsPer90
+    nonPenaltyExpectedGoalContributionsPer90
